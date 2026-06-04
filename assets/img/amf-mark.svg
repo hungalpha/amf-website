@@ -1,9 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 196" width="220" height="196" role="img" aria-label="Alpha Metal Fabrication mark">
-  <!-- Blue triangular ring (outer triangle minus inner hole, even-odd) -->
-  <path fill="#1C5DA8" fill-rule="evenodd"
+  <path fill="#1C5FA8" fill-rule="evenodd"
         d="M110 8 L212 188 L8 188 Z
            M110 70 L162 168 L58 168 Z"/>
-  <!-- Orange inner triangle, inset to leave an even gap to the blue -->
-  <path fill="#E8741A"
+  <path fill="#EF7D22"
         d="M110 92 L150 158 L70 158 Z"/>
 </svg>
