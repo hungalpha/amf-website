@@ -97,7 +97,7 @@
       '</div>' +
     '</div></div>' +
     '<header class="header" id="header"><div class="container header__inner">' +
-      '<a class="brand" href="index.html"><img src="assets/img/amf-logo-official.png" alt="' + SITE.name + ' (AMF)"></a>' +
+      '<a class="brand" href="index.html"><img src="assets/img/amf-logo.png" alt="' + SITE.name + ' (AMF)"></a>' +
       '<nav class="nav" id="nav">' + navLinks(current, false) +
         '<a class="btn btn--accent btn--sm nav__cta" href="contact.html#rfq">Request a Quote</a>' +
       '</nav>' +
@@ -117,7 +117,7 @@
     return '' +
     '<footer class="footer"><div class="container footer__inner">' +
       '<div class="footer__brand">' +
-        '<span class="footer__logo-plate"><img src="assets/img/amf-logo-official.png" alt="' + SITE.name + '" class="footer__logo"></span>' +
+        '<span class="footer__logo-plate"><img src="assets/img/amf-logo.png" alt="' + SITE.name + '" class="footer__logo"></span>' +
         '<p>Alpha Metal Fabrication (AMF) — fabrication of steel structures, pressure vessels and process equipment to international standards.</p>' +
       '</div>' +
       '<div class="footer__col"><h4>Capabilities</h4>' + capLinks + '</div>' +
