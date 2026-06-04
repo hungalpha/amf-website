@@ -4,7 +4,7 @@
   "private": true,
   "description": "Alpha Metal Fabrication (AMF) static website",
   "scripts": {
-    "start": "serve -l tcp://0.0.0.0:${PORT:-3000}"
+    "start": "serve -l tcp://0.0.0.0:3000"
   },
   "dependencies": {
     "serve": "^14.2.4"
