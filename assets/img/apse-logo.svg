@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 372 158" width="372" height="158">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&amp;display=swap');
+      .wm{font-family:'Poppins','Arial Black',sans-serif;font-weight:800;}
+      .tg{font-family:'Poppins',Arial,sans-serif;font-weight:600;}
+    </style>
+  </defs>
+
+  <!-- ICON: 2 chữ A tam giác sát nhau, A cam = bóng đổ; căn cân giữa với khối 2 dòng chữ -->
+  <g fill="none" stroke-linejoin="miter" stroke-miterlimit="12" stroke-linecap="butt">
+    <!-- A cam (shadow, lệch nhẹ xuống-phải) -->
+    <path d="M65 43 L29 126 M65 43 L101 126 M46 103 L84 103" stroke="#F7941E" stroke-width="20"/>
+    <!-- A xanh (phía trước) -->
+    <path d="M58 38 L22 121 M58 38 L94 121 M39 98 L77 98" stroke="#1C75BC" stroke-width="20"/>
+  </g>
+
+  <!-- WORDMARK + tagline, căn bằng chiều rộng, đặt sát icon -->
+  <text class="wm" x="128" y="92" font-size="70" letter-spacing="1" fill="#1C75BC">APSE</text>
+  <text class="tg" x="130" y="114" font-size="12" fill="#5A6B7B"
+        textLength="194" lengthAdjust="spacing">Alpha Process &amp; System Engineering</text>
+</svg>

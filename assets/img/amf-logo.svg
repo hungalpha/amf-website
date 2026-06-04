@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 486 196" width="486" height="196" role="img" aria-label="Alpha Metal Fabrication (AMF)">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&amp;display=swap');
+      .nm{font-family:'Poppins','Arial Black',Arial,sans-serif;font-weight:800;fill:#1C5DA8;}
+      .sb{font-family:'Poppins',Arial,sans-serif;font-weight:600;fill:#1C5DA8;}
+    </style>
+  </defs>
+
+  <!-- ICON: blue ring + orange triangle -->
+  <g transform="translate(6,10) scale(0.86)">
+    <path fill="#1C5DA8" fill-rule="evenodd"
+          d="M110 8 L212 188 L8 188 Z  M110 70 L162 168 L58 168 Z"/>
+    <path fill="#E8741A" d="M110 92 L150 158 L70 158 Z"/>
+  </g>
+
+  <!-- WORDMARK: subtitle width locked to the name width for an even lockup -->
+  <text class="nm" x="208" y="96"  font-size="72" letter-spacing="3">ALPHA</text>
+  <text class="sb" x="210" y="135" font-size="26"
+        textLength="262" lengthAdjust="spacingAndGlyphs">METAL FABRICATION</text>
+  <text class="sb" x="210" y="170" font-size="25" letter-spacing="5">(AMF)</text>
+</svg>

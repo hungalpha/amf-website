@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 210" width="560" height="210" font-family="'Arial Black', Montserrat, Arial, sans-serif">
+  <!-- V2-D: Wordmark khối đậm + bồn áp lực thay chữ, mối hàn cắt chéo -->
+  <g transform="translate(40,30)">
+    <!-- BỒN ÁP LỰC nằm ngang làm "huy hiệu" trên đầu -->
+    <g transform="translate(0,0)">
+      <rect x="0" y="0" width="150" height="34" rx="17" fill="#22303A"/>
+      <ellipse cx="12" cy="17" rx="7" ry="16" fill="#0f1a20"/>
+      <ellipse cx="138" cy="17" rx="7" ry="16" fill="#3a4b54"/>
+      <!-- gân tăng cứng -->
+      <line x1="55" y1="2" x2="55" y2="32" stroke="#0f1a20" stroke-width="2"/>
+      <line x1="95" y1="2" x2="95" y2="32" stroke="#0f1a20" stroke-width="2"/>
+      <!-- nozzle -->
+      <rect x="70" y="-7" width="10" height="9" fill="#C8102E"/>
+      <circle cx="75" cy="-9" r="4" fill="#C8102E"/>
+    </g>
+    <!-- saddle -->
+    <path d="M30 34 L44 34 L50 47 L24 47 Z" fill="#5A6B73"/>
+    <path d="M106 34 L120 34 L126 47 L100 47 Z" fill="#5A6B73"/>
+  </g>
+
+  <!-- Wordmark lớn -->
+  <text x="40" y="148" font-size="80" font-weight="900" letter-spacing="3" fill="#22303A">APSE</text>
+  <!-- mối hàn chéo (CNC cut) cắt qua chữ -->
+  <line x1="36" y1="158" x2="300" y2="158" stroke="#C8102E" stroke-width="5"/>
+  <text x="42" y="184" font-size="14" font-weight="700" letter-spacing="3.4" fill="#6B7A82">ALPHA PROCESS &amp; SYSTEM ENGINEERING</text>
+</svg>

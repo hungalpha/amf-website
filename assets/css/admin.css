@@ -1,0 +1,50 @@
+/* AMF Admin — dashboard styling */
+:root{--blue:#1C5DA8;--blue-dark:#163a5f;--blue-darker:#0e2840;--orange:#E8741A;--orange-dark:#cf6210;
+  --slate:#5a6b7b;--ink:#1b2733;--line:#dde3ea;--bg-soft:#eef1f4;--radius:12px}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Poppins',Arial,sans-serif;color:var(--ink);background:var(--bg-soft)}
+a{color:var(--blue)}
+.admin-top{background:var(--blue-darker);color:#fff;display:flex;align-items:center;justify-content:space-between;
+  padding:14px 24px;position:sticky;top:0;z-index:20}
+.admin-top img{height:34px;filter:brightness(0) invert(1)}
+.admin-top .right{display:flex;gap:10px;align-items:center;font-size:13px;color:#bcd}
+.btn{display:inline-flex;align-items:center;gap:.4em;padding:10px 18px;border-radius:9px;font:inherit;
+  font-weight:600;font-size:14px;cursor:pointer;border:2px solid transparent;background:var(--blue);color:#fff;transition:.15s}
+.btn:hover{filter:brightness(1.07)}
+.btn--accent{background:var(--orange)}.btn--accent:hover{background:var(--orange-dark)}
+.btn--ghost{background:transparent;border-color:#fff;color:#fff}
+.btn--line{background:#fff;border-color:var(--line);color:var(--ink)}
+.btn--danger{background:#c0392b}
+.btn--sm{padding:7px 12px;font-size:13px}
+.wrap{max-width:1080px;margin:0 auto;padding:22px 24px 80px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:22px}
+.tab{padding:9px 16px;border-radius:9px;background:#fff;border:1px solid var(--line);cursor:pointer;font-weight:600;font-size:14px;color:var(--slate)}
+.tab.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+.panel{display:none}.panel.active{display:block}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;margin-bottom:18px}
+.card h2{margin:0 0 4px;font-size:18px;color:var(--blue-dark)}
+.card .hint{color:var(--slate);font-size:13.5px;margin:0 0 16px}
+label{display:block;font-weight:600;font-size:13px;color:var(--blue-dark);margin:14px 0 6px}
+input,select,textarea{width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:9px;font:inherit;font-size:14px;background:#fff}
+textarea{min-height:90px;resize:vertical;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px}
+.field{margin-bottom:8px}
+.field .key{font-family:ui-monospace,monospace;font-size:12px;color:var(--orange-dark);background:#fff3e8;padding:1px 7px;border-radius:5px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.imgrow{display:flex;gap:12px;align-items:center;margin-top:6px}
+.imgrow img{height:54px;width:90px;object-fit:cover;border-radius:7px;border:1px solid var(--line);background:#f4f6f9}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:8px}
+.muted{color:var(--slate);font-size:13.5px}
+.pagesel{display:flex;gap:10px;align-items:center;margin-bottom:16px;flex-wrap:wrap}
+.news-item{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.news-item:last-child{border-bottom:0}
+.news-item small{color:var(--slate)}
+.tag{display:inline-block;background:var(--bg-soft);color:var(--blue);font-size:12px;font-weight:600;padding:3px 9px;border-radius:12px}
+.note{background:#fff3e8;border:1px solid #f6d9bd;border-radius:9px;padding:12px 14px;font-size:13.5px;color:#8a5a2b}
+.ok{background:#e7f6ec;border:1px solid #b9e3c6;color:#23663b;border-radius:9px;padding:10px 14px;font-size:13.5px;margin-top:10px}
+.switch{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.switch input{width:auto}
+.code{background:#0e2840;color:#cfe1f5;border-radius:9px;padding:14px;font-family:ui-monospace,monospace;font-size:12.5px;overflow:auto;white-space:pre-wrap}
+/* Gate */
+.gate{max-width:380px;margin:12vh auto;background:#fff;border:1px solid var(--line);border-radius:14px;padding:30px;text-align:center}
+.gate img{height:54px;margin-bottom:14px}
+@media(max-width:680px){.row2{grid-template-columns:1fr}}

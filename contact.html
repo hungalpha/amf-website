@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact &amp; Request a Quote — Alpha Metal Fabrication (AMF)</title>
+  <meta name="description" content="Contact Alpha Metal Fabrication (AMF) or request a quote for steel structures, pressure vessels and process equipment." />
+  <link rel="icon" href="assets/img/amf-mark.svg" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <section class="page-hero">
+    <div class="page-hero__grid"></div>
+    <div class="container page-hero__inner">
+      <div class="breadcrumb"><a href="index.html">Home</a> / Contact</div>
+      <h1 data-edit="hero.title">Contact &amp; Request a Quote</h1>
+      <p data-edit="hero.sub">Send us your drawings or specifications and our team will respond promptly.</p>
+    </div>
+  </section>
+
+  <section class="section" id="rfq">
+    <div class="container contact-grid">
+      <div>
+        <p class="eyebrow">Get in touch</p>
+        <h2>We'd love to hear about your project</h2>
+        <p class="muted">Reach us directly, or use the form and we'll get back to you with a proposal.</p>
+        <div class="contact-info">
+          <ul>
+            <li><span class="ic">📞</span><div><strong>Phone</strong><br><a data-bind="phone" href="#">+84 000 000 000</a></div></li>
+            <li><span class="ic">✉️</span><div><strong>Email</strong><br><a data-bind="email" href="#">info@alphametalfab.com</a></div></li>
+            <li><span class="ic">📍</span><div><strong>Address</strong><br><span data-bind="address">Industrial Zone, Vietnam</span></div></li>
+          </ul>
+        </div>
+      </div>
+
+      <form class="form" id="rfq-form" onsubmit="return AMF_submitRFQ(event)">
+        <div class="row">
+          <div><label>Full name</label><input type="text" name="name" required /></div>
+          <div><label>Company</label><input type="text" name="company" /></div>
+        </div>
+        <div class="row">
+          <div><label>Email</label><input type="email" name="email" required /></div>
+          <div><label>Phone</label><input type="text" name="phone" /></div>
+        </div>
+        <div>
+          <label>Scope of work</label>
+          <select name="scope">
+            <option>Steel Structures</option>
+            <option>Pressure Vessels</option>
+            <option>Process Equipment</option>
+            <option>Other / Mixed</option>
+          </select>
+        </div>
+        <div><label>Project details</label><textarea name="message" placeholder="Describe your scope, quantities, materials, standards and timeline…"></textarea></div>
+        <button class="btn btn--accent" type="submit">Send Request</button>
+        <p id="rfq-note" class="muted" style="margin:0"></p>
+      </form>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+  <script src="assets/js/site.js"></script>
+  <script>
+    // Front-end only: opens the visitor's email client with the enquiry prefilled.
+    // Wire to a real endpoint (Formspree, API, etc.) when ready.
+    function AMF_submitRFQ(e){
+      e.preventDefault();
+      var f = e.target, to = (window.AMF && AMF.SITE.email) || "info@alphametalfab.com";
+      var body = "Name: "+f.name.value+"\nCompany: "+f.company.value+"\nEmail: "+f.email.value+
+                 "\nPhone: "+f.phone.value+"\nScope: "+f.scope.value+"\n\n"+f.message.value;
+      var subject = "Quote request — "+(f.company.value||f.name.value);
+      window.location.href = "mailto:"+to+"?subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
+      document.getElementById("rfq-note").textContent = "Opening your email app… if nothing happens, email us directly at "+to+".";
+      return false;
+    }
+  </script>
+</body>
+</html>

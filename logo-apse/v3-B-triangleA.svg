@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 200" width="580" height="200" font-family="Montserrat, 'Arial Black', Arial, sans-serif">
+  <!-- V3-B: Kiểu Hyundai HHI - tam giác = chữ A, navy khối + nhấn cam, có crossbar -->
+  <g transform="translate(26,18)">
+    <!-- tam giác navy (chữ A đặc) với counter rỗng -->
+    <path d="M68 6 L130 150 L96 150 L68 78 L40 150 L6 150 Z" fill="#15397A"/>
+    <!-- crossbar navy -->
+    <rect x="44" y="104" width="48" height="20" fill="#15397A"/>
+    <!-- chữ A thứ 2 (cam) - lát cam nghiêng ở sườn trái = chữ A thứ hai chồng lên -->
+    <path d="M68 6 L40 150 L22 150 L52 36 Z" fill="#F47920"/>
+  </g>
+
+  <text x="170" y="98" font-size="72" font-weight="800" letter-spacing="2" fill="#15397A">APSE</text>
+  <text x="172" y="130" font-size="14" font-weight="700" letter-spacing="1.5" fill="#5A6B7B">ALPHA PROCESS &amp; SYSTEM ENGINEERING</text>
+</svg>

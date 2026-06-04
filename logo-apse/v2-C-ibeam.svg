@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 200" width="560" height="200" font-family="'Arial Black', Montserrat, Arial, sans-serif">
+  <!-- V2-C: Chữ A dựng từ thép hình I-beam (kết cấu thép) -->
+  <g transform="translate(30,18)" fill="#22303A">
+    <!-- chân trái (dầm nghiêng có flange 2 đầu) -->
+    <g transform="rotate(-19 70 10)">
+      <rect x="58" y="6" width="24" height="148" />
+      <rect x="48" y="6" width="44" height="13" /> <!-- flange trên -->
+      <rect x="48" y="141" width="44" height="13" /> <!-- flange dưới -->
+    </g>
+    <!-- chân phải -->
+    <g transform="rotate(19 70 10)">
+      <rect x="58" y="6" width="24" height="148" />
+      <rect x="48" y="6" width="44" height="13" />
+      <rect x="48" y="141" width="44" height="13" />
+    </g>
+    <!-- thanh ngang (dầm I nằm ngang) -->
+    <rect x="40" y="92" width="60" height="20" />
+    <rect x="40" y="86" width="9" height="32" />
+    <rect x="91" y="86" width="9" height="32" />
+    <!-- bu-lông nhấn ở đỉnh -->
+    <circle cx="70" cy="14" r="9" fill="#F26522"/>
+    <circle cx="70" cy="14" r="3.5" fill="#22303A"/>
+  </g>
+
+  <text x="175" y="100" font-size="68" font-weight="900" letter-spacing="1" fill="#22303A">APSE</text>
+  <text x="177" y="132" font-size="13.5" font-weight="700" letter-spacing="1.3" fill="#6B7A82">ALPHA PROCESS &amp; SYSTEM ENGINEERING</text>
+</svg>

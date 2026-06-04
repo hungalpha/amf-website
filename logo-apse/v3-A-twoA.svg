@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 200" width="580" height="200" font-family="Montserrat, 'Arial Black', Arial, sans-serif">
+  <!-- V3-A: HAI chữ A lồng nhau (navy + cam) kiểu chevron tiến lên -->
+  <g transform="translate(26,22)" fill="none" stroke-linejoin="round" stroke-linecap="butt">
+    <!-- A cam (phía sau, lệch phải) -->
+    <path d="M70 10 L40 140 M70 10 L100 140 M52 92 L88 92" stroke="#F47920" stroke-width="20"/>
+    <!-- A navy (phía trước) -->
+    <path d="M40 10 L10 140 M40 10 L70 140 M22 92 L58 92" stroke="#15397A" stroke-width="20"/>
+  </g>
+
+  <text x="170" y="98" font-size="72" font-weight="800" letter-spacing="2" fill="#15397A">APSE</text>
+  <text x="172" y="130" font-size="14" font-weight="700" letter-spacing="1.5" fill="#5A6B7B">ALPHA PROCESS &amp; SYSTEM ENGINEERING</text>
+</svg>

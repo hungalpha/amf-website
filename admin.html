@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — Alpha Metal Fabrication (AMF)</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="assets/img/amf-mark.svg" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/admin.css" />
+</head>
+<body>
+
+  <!-- Login gate (client-side only — see note) -->
+  <div id="gate" class="gate">
+    <img src="assets/img/amf-logo.svg" alt="AMF" />
+    <h2>Admin sign in</h2>
+    <p class="muted">Enter the admin passphrase to manage content.</p>
+    <input type="password" id="gate-pass" placeholder="Passphrase" />
+    <div style="margin-top:12px"><button class="btn" onclick="AMFAdmin.login()">Sign in</button></div>
+    <p class="note" style="margin-top:16px;text-align:left">This is a lightweight, client-side gate for convenience. For real protection, host the admin behind authentication or a private deployment.</p>
+  </div>
+
+  <!-- Dashboard -->
+  <div id="app" style="display:none">
+    <div class="admin-top">
+      <img src="assets/img/amf-logo.svg" alt="AMF Admin" />
+      <div class="right">
+        <span>Working copy saved in this browser</span>
+        <a class="btn btn--ghost btn--sm" href="index.html" target="_blank">View site ↗</a>
+        <button class="btn btn--ghost btn--sm" onclick="AMFAdmin.logout()">Sign out</button>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="tabs">
+        <div class="tab active" data-panel="pages">📄 Page content</div>
+        <div class="tab" data-panel="news">📰 News</div>
+        <div class="tab" data-panel="global">📞 Contact info</div>
+        <div class="tab" data-panel="settings">⚙️ Settings</div>
+        <div class="tab" data-panel="publish">⬆️ Publish</div>
+      </div>
+
+      <!-- PAGES -->
+      <div class="panel active" id="panel-pages">
+        <div class="card">
+          <h2>Edit page text &amp; images</h2>
+          <p class="hint">Pick a page, edit its fields, then <strong>Save</strong>. Changes preview instantly on the live site in this browser. Use <strong>Publish</strong> to make them permanent for everyone.</p>
+          <div class="pagesel">
+            <label style="margin:0">Page:</label>
+            <select id="page-select" style="max-width:280px"></select>
+            <button class="btn btn--line btn--sm" onclick="AMFAdmin.loadPage()">Reload</button>
+          </div>
+          <div id="page-fields"></div>
+          <div class="toolbar">
+            <button class="btn btn--accent" onclick="AMFAdmin.savePage()">💾 Save page</button>
+            <button class="btn btn--line btn--sm" onclick="AMFAdmin.resetPage()">Reset this page to defaults</button>
+            <span id="page-saved" class="muted"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- NEWS -->
+      <div class="panel" id="panel-news">
+        <div class="card">
+          <h2>News articles</h2>
+          <p class="hint">Add, edit or remove news posts. They appear on the News page and the homepage feed.</p>
+          <button class="btn btn--accent btn--sm" onclick="AMFAdmin.newArticle()">+ New article</button>
+          <div id="news-list-admin" style="margin-top:14px"></div>
+        </div>
+        <div class="card" id="news-editor" style="display:none">
+          <h2 id="news-editor-title">Edit article</h2>
+          <input type="hidden" id="n-id" />
+          <div class="row2">
+            <div><label>Title</label><input id="n-title" /></div>
+            <div><label>Date</label><input id="n-date" type="date" /></div>
+          </div>
+          <label>Excerpt (short summary)</label>
+          <textarea id="n-excerpt" style="min-height:60px"></textarea>
+          <label>Cover image</label>
+          <div class="imgrow"><img id="n-image-prev" alt="" /><input type="file" accept="image/*" onchange="AMFAdmin.pickImage(event,'n-image')" /></div>
+          <input id="n-image" placeholder="…or paste an image URL" style="margin-top:8px" />
+          <label>Body (HTML allowed)</label>
+          <textarea id="n-body" style="min-height:180px"></textarea>
+          <div class="toolbar">
+            <button class="btn btn--accent" onclick="AMFAdmin.saveArticle()">💾 Save article</button>
+            <button class="btn btn--line btn--sm" onclick="AMFAdmin.closeArticle()">Cancel</button>
+            <span id="news-saved" class="muted"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- GLOBAL -->
+      <div class="panel" id="panel-global">
+        <div class="card">
+          <h2>Contact information</h2>
+          <p class="hint">Used across the header, footer and contact page.</p>
+          <div class="row2">
+            <div><label>Phone</label><input id="g-phone" /></div>
+            <div><label>Email</label><input id="g-email" /></div>
+          </div>
+          <label>Address</label><input id="g-address" />
+          <div class="toolbar"><button class="btn btn--accent" onclick="AMFAdmin.saveGlobal()">💾 Save contact info</button><span id="global-saved" class="muted"></span></div>
+        </div>
+      </div>
+
+      <!-- SETTINGS -->
+      <div class="panel" id="panel-settings">
+        <div class="card">
+          <h2>Optional sections</h2>
+          <p class="hint">AMF is a new company, so track-record sections are hidden. Turn them on once you have content to show.</p>
+          <div class="switch"><input type="checkbox" id="f-projects" /><label for="f-projects" style="margin:0">Show <strong>“Selected projects”</strong> section (homepage)</label></div>
+          <div class="switch"><input type="checkbox" id="f-experience" /><label for="f-experience" style="margin:0">Show <strong>“Company milestones / history”</strong> section (About)</label></div>
+          <div class="toolbar"><button class="btn btn--accent" onclick="AMFAdmin.saveFeatures()">💾 Save settings</button><span id="features-saved" class="muted"></span></div>
+        </div>
+        <div class="card">
+          <h2>Change passphrase</h2>
+          <p class="hint">Stored in this browser only.</p>
+          <input id="new-pass" type="text" placeholder="New passphrase" />
+          <div class="toolbar"><button class="btn btn--line" onclick="AMFAdmin.setPass()">Update passphrase</button><span id="pass-saved" class="muted"></span></div>
+        </div>
+      </div>
+
+      <!-- PUBLISH -->
+      <div class="panel" id="panel-publish">
+        <div class="card">
+          <h2>Publish your changes</h2>
+          <p class="hint">Your edits are saved in this browser. To make them visible to everyone, download the two data files and commit them to the GitHub repository (they live in <code>assets/data/</code>).</p>
+          <div class="toolbar">
+            <button class="btn btn--accent" onclick="AMFAdmin.download('content')">⬇️ Download content.json</button>
+            <button class="btn btn--accent" onclick="AMFAdmin.download('news')">⬇️ Download news.json</button>
+          </div>
+          <div class="note" style="margin-top:16px">
+            <strong>How to publish (one time setup is easy):</strong><br>
+            1. Click the two download buttons above.<br>
+            2. Replace <code>assets/data/content.json</code> and <code>assets/data/news.json</code> in your repo with the downloaded files.<br>
+            3. Commit &amp; push (or drag-drop them in GitHub's web UI). GitHub Pages updates automatically.
+          </div>
+          <h2 style="margin-top:22px">Preview: content.json</h2>
+          <pre class="code" id="preview-content"></pre>
+          <h2>Preview: news.json</h2>
+          <pre class="code" id="preview-news"></pre>
+          <div class="toolbar" style="margin-top:14px">
+            <button class="btn btn--danger btn--sm" onclick="AMFAdmin.resetAll()">⚠️ Reset all local changes</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="assets/js/site.js"></script>
+  <script src="assets/js/admin.js"></script>
+</body>
+</html>

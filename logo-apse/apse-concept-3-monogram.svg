@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 200" width="540" height="200" font-family="Montserrat, 'Segoe UI', Arial, sans-serif">
+  <!-- CONCEPT 3: Monogram - khối hệ thống lục giác, chữ A + flow + node -->
+  <defs>
+    <linearGradient id="g3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#00B4D8"/>
+      <stop offset="1" stop-color="#0A2A5E"/>
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(26,26)">
+    <!-- khung lục giác kỹ thuật -->
+    <path d="M70 4 L131 39 L131 109 L70 144 L9 109 L9 39 Z"
+          fill="none" stroke="url(#g3)" stroke-width="9" stroke-linejoin="round"/>
+    <!-- chữ A bên trong -->
+    <path d="M70 36 L48 104 M70 36 L92 104 M58 84 L82 84"
+          fill="none" stroke="#0A2A5E" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- node nhấn ở đỉnh -->
+    <circle cx="70" cy="4" r="9" fill="#00B4D8"/>
+    <circle cx="131" cy="74" r="5.5" fill="#48CAE4"/>
+    <circle cx="9" cy="74" r="5.5" fill="#48CAE4"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="195" y="100" font-size="72" font-weight="800" letter-spacing="2" fill="#0A2A5E">APSE</text>
+  <text x="197" y="132" font-size="14.5" font-weight="600" letter-spacing="1.4" fill="#5A6B7B">ALPHA PROCESS &amp; SYSTEM ENGINEERING</text>
+</svg>

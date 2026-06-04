@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200" width="600" height="200" font-family="Montserrat, 'Arial Black', Arial, sans-serif">
+  <!-- V3-C: Hai chữ A cạnh nhau (navy + cam) = "AA", đỉnh núi kép / tiến lên -->
+  <g transform="translate(26,22)" fill="none" stroke-linejoin="round" stroke-linecap="butt">
+    <!-- A navy -->
+    <path d="M44 10 L14 140 M44 10 L74 140 M26 92 L62 92" stroke="#15397A" stroke-width="19"/>
+    <!-- A cam -->
+    <path d="M104 10 L74 140 M104 10 L134 140 M86 92 L122 92" stroke="#F47920" stroke-width="19"/>
+  </g>
+
+  <text x="200" y="98" font-size="72" font-weight="800" letter-spacing="2" fill="#15397A">APSE</text>
+  <text x="202" y="130" font-size="14" font-weight="700" letter-spacing="1.4" fill="#5A6B7B">ALPHA PROCESS &amp; SYSTEM ENGINEERING</text>
+</svg>

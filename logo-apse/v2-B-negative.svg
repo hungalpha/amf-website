@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 200" width="560" height="200" font-family="'Arial Black', Montserrat, Arial, sans-serif">
+  <!-- V2-B: Khối thép vát góc, chữ A negative-space, counter chứa cross-section bồn -->
+  <g transform="translate(28,24)">
+    <!-- tấm thép vát 2 góc + đầu bolt -->
+    <path d="M22 8 H108 L130 30 V120 Q130 152 98 152 H8 Q-8 152 8 120 V30 Z"
+          fill="#22303A"/>
+    <!-- chữ A khoét rỗng (negative space) -->
+    <path d="M65 32
+             L33 124 L52 124 L58 104 L72 104 L78 124 L97 124 L65 32 Z
+             M62 88 L68 88 L65 76 Z"
+          fill="#ffffff" fill-rule="evenodd"/>
+    <!-- chấm bồn (vessel cross-section) trong counter -->
+    <circle cx="65" cy="84" r="5.5" fill="#C8102E"/>
+    <!-- 2 rivet góc -->
+    <circle cx="115" cy="22" r="4" fill="#5A6B73"/>
+    <circle cx="115" cy="128" r="4" fill="#5A6B73"/>
+  </g>
+
+  <text x="180" y="100" font-size="68" font-weight="900" letter-spacing="1" fill="#22303A">APSE</text>
+  <text x="182" y="132" font-size="13.5" font-weight="700" letter-spacing="1.3" fill="#6B7A82">ALPHA PROCESS &amp; SYSTEM ENGINEERING</text>
+</svg>
