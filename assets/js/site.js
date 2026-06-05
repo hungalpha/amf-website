@@ -12,7 +12,7 @@
     short: "AMF",
     tagline: "Steel structures, pressure vessels & process equipment",
     phone: "+84 000 000 000",
-    email: "info@alphametalfab.com",
+    email: "info@alphametalfabrication.com",
     address: "Industrial Zone, Vietnam",
     nav: [
       { label: "Home", href: "index.html" },

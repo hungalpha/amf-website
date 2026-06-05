@@ -30,7 +30,7 @@
         <div class="contact-info">
           <ul>
             <li><span class="ic">📞</span><div><strong>Phone</strong><br><a data-bind="phone" href="#">+84 000 000 000</a></div></li>
-            <li><span class="ic">✉️</span><div><strong>Email</strong><br><a data-bind="email" href="#">info@alphametalfab.com</a></div></li>
+            <li><span class="ic">✉️</span><div><strong>Email</strong><br><a data-bind="email" href="#">info@alphametalfabrication.com</a></div></li>
             <li><span class="ic">📍</span><div><strong>Address</strong><br><span data-bind="address">Industrial Zone, Vietnam</span></div></li>
           </ul>
         </div>
@@ -68,7 +68,7 @@
     // Wire to a real endpoint (Formspree, API, etc.) when ready.
     function AMF_submitRFQ(e){
       e.preventDefault();
-      var f = e.target, to = (window.AMF && AMF.SITE.email) || "info@alphametalfab.com";
+      var f = e.target, to = (window.AMF && AMF.SITE.email) || "info@alphametalfabrication.com";
       var body = "Name: "+f.name.value+"\nCompany: "+f.company.value+"\nEmail: "+f.email.value+
                  "\nPhone: "+f.phone.value+"\nScope: "+f.scope.value+"\n\n"+f.message.value;
       var subject = "Quote request — "+(f.company.value||f.name.value);
