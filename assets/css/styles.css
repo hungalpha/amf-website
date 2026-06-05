@@ -53,8 +53,8 @@ p{margin:0 0 1em}
 .header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.97);
   backdrop-filter:blur(8px);border-bottom:1px solid var(--line);transition:box-shadow .2s}
 .header.scrolled{box-shadow:0 6px 20px rgba(22,58,95,.08)}
-.header__inner{display:flex;align-items:center;justify-content:space-between;min-height:76px;gap:20px}
-.brand img{height:62px;width:auto;display:block}
+.header__inner{display:flex;align-items:center;justify-content:space-between;min-height:76px;gap:20px;padding:8px 0}
+.brand img{height:120px;width:auto;display:block}
 .nav{display:flex;align-items:center;gap:22px}
 .nav__link{font-weight:600;font-size:15px;color:var(--ink);transition:color .15s;padding:6px 0;position:relative}
 .nav__link:hover,.nav__link.active{color:var(--blue)}
