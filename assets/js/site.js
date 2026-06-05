@@ -381,10 +381,10 @@
     "Engineering": "Thiết kế kỹ thuật",
     "Assembly": "Lắp ráp",
     "Assembly workshop": "Xưởng lắp ráp",
-    "22 m clear height, 50 t tandem overhead cranes, skilled assembly workforce": "Chiều cao thông thủy 22 m, cầu trục nâng đôi 50 tấn, đội ngũ lắp ráp lành nghề",
+    "22 m clear height, 2 × 50 t overhead cranes (100 t tandem lift), skilled assembly workforce": "Chiều cao thông thủy 22 m, 2 × cầu trục 50 tấn (nâng đôi 100 tấn), đội ngũ lắp ráp lành nghề",
     // Facilities — assembly workshop & logistics
     "Assembly Workshop — 22 m height": "Xưởng lắp ráp — cao 22 m",
-    "Dedicated high-bay assembly workshop (22 m clear height) with 50 t tandem overhead cranes for mechanical and E&I finished assembly and testing by skilled assembly technicians.": "Xưởng lắp ráp cao tầng chuyên dụng (thông thủy 22 m) với cầu trục nâng đôi 50 tấn cho lắp ráp hoàn thiện cơ khí và E&I và thử nghiệm bởi đội ngũ kỹ thuật viên lành nghề.",
+    "Dedicated high-bay assembly workshop (22 m clear height) with two 50 t overhead cranes (100 t tandem lift) for mechanical and E&I finished assembly and testing by skilled assembly technicians.": "Xưởng lắp ráp cao tầng chuyên dụng (thông thủy 22 m) với hai cầu trục 50 tấn (nâng đôi 100 tấn) cho lắp ráp hoàn thiện cơ khí và E&I và thử nghiệm bởi đội ngũ kỹ thuật viên lành nghề.",
     "Location & logistics": "Vị trí & logistics",
     "Close to major ports": "Gần các cảng lớn",
     "AMF's facility sits just 20 km from the nearest container port, with three major ports within 80 km — making load-out and shipping of large, heavy fabrications straightforward for both domestic projects and export.": "Nhà máy của AMF chỉ cách cảng container gần nhất 20 km, với ba cảng lớn trong bán kính 80 km — giúp việc xuất hàng và vận chuyển các sản phẩm chế tạo lớn, nặng trở nên thuận tiện cho cả dự án trong nước và xuất khẩu.",
