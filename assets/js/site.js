@@ -270,7 +270,7 @@
     "/ Facilities": "/ Nhà xưởng", "/ Quality": "/ Chất lượng", "/ Industries": "/ Lĩnh vực",
     "/ News": "/ Tin tức", "/ Contact": "/ Liên hệ", "/ Article": "/ Bài viết",
     // Home
-    "Precision fabrication of": "Chế tạo chính xác",
+    "Precision metal fabrication of": "Chế tạo cơ khí chính xác",
     "metal products, pressure vessels & process equipment": "sản phẩm kim loại, bồn chịu áp lực & thiết bị công nghệ",
     "A modern fabrication facility serving the oil & gas, power and steel industries — engineering, fabrication, blasting, painting and testing under one roof, to international codes and standards.": "Nhà máy chế tạo hiện đại phục vụ các ngành dầu khí, điện và thép — kỹ thuật, chế tạo, làm sạch bề mặt, sơn và kiểm định trong cùng một cơ sở, theo các tiêu chuẩn và quy phạm quốc tế.",
     "Our Capabilities": "Năng lực của chúng tôi", "What we do": "Chúng tôi làm gì",
