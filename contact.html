@@ -64,16 +64,43 @@
   <div id="site-footer"></div>
   <script src="assets/js/site.js"></script>
   <script>
-    // Front-end only: opens the visitor's email client with the enquiry prefilled.
-    // Wire to a real endpoint (Formspree, API, etc.) when ready.
+    // Sends the enquiry by email via FormSubmit (no backend needed).
+    // First submission triggers a one-time activation email to the recipient.
+    var RFQ_TO = "alpha@alphametalfabrication.com";
     function AMF_submitRFQ(e){
       e.preventDefault();
-      var f = e.target, to = (window.AMF && AMF.SITE.email) || "info@alphametalfabrication.com";
-      var body = "Name: "+f.name.value+"\nCompany: "+f.company.value+"\nEmail: "+f.email.value+
-                 "\nPhone: "+f.phone.value+"\nScope: "+f.scope.value+"\n\n"+f.message.value;
-      var subject = "Quote request — "+(f.company.value||f.name.value);
-      window.location.href = "mailto:"+to+"?subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
-      document.getElementById("rfq-note").textContent = "Opening your email app… if nothing happens, email us directly at "+to+".";
+      var f = e.target;
+      var note = document.getElementById("rfq-note");
+      var btn = f.querySelector('button[type="submit"]');
+      var vi = document.documentElement.lang === "vi";
+      note.textContent = vi ? "Đang gửi…" : "Sending…";
+      if (btn) btn.disabled = true;
+      var payload = {
+        name: f.name.value, company: f.company.value, email: f.email.value,
+        phone: f.phone.value, scope: f.scope.value, message: f.message.value,
+        _subject: "New quote request — AMF website (" + (f.company.value || f.name.value || "no name") + ")",
+        _template: "table"
+      };
+      fetch("https://formsubmit.co/ajax/" + RFQ_TO, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(payload)
+      }).then(function(r){ return r.json(); }).then(function(res){
+        if (res && (res.success === true || res.success === "true")) {
+          f.reset();
+          note.textContent = vi
+            ? "Cảm ơn bạn — yêu cầu đã được gửi. Chúng tôi sẽ phản hồi sớm."
+            : "Thank you — your request has been sent. We'll get back to you shortly.";
+        } else {
+          note.textContent = vi
+            ? "Có lỗi xảy ra. Vui lòng email trực tiếp tới " + RFQ_TO + "."
+            : "Something went wrong. Please email us directly at " + RFQ_TO + ".";
+        }
+      }).catch(function(){
+        note.textContent = vi
+          ? "Có lỗi xảy ra. Vui lòng email trực tiếp tới " + RFQ_TO + "."
+          : "Something went wrong. Please email us directly at " + RFQ_TO + ".";
+      }).then(function(){ if (btn) btn.disabled = false; });
       return false;
     }
   </script>

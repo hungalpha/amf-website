@@ -364,6 +364,13 @@
     "Have a structural package?": "Bạn có gói kết cấu cần chế tạo?",
     "Send drawings and a BOQ — we'll return a fabrication proposal.": "Gửi bản vẽ và BOQ — chúng tôi sẽ phản hồi đề xuất chế tạo.",
     // Pressure vessels
+    "ASME Section VIII Div. 1 pressure vessels, heat exchangers and tanks under our ASME “U” stamp.": "Bồn chịu áp lực, thiết bị trao đổi nhiệt và bồn chứa theo ASME Section VIII Div. 1 với dấu ASME “U”.",
+    "AMF designs and fabricates pressure vessels and heat exchangers to ASME Section VIII Division 1, holding the ASME “U” designator. Every item is welded under an ISO 3834-2 system with qualified procedures, post-weld heat treated where required, inspected and pressure-tested, and delivered with a complete manufacturing data book.": "AMF thiết kế và chế tạo bồn chịu áp lực và thiết bị trao đổi nhiệt theo ASME Section VIII Division 1, sở hữu dấu ASME “U”. Mỗi sản phẩm được hàn theo hệ thống ISO 3834-2 với quy trình được phê duyệt, xử lý nhiệt sau hàn khi cần, được kiểm tra và thử áp, và bàn giao kèm bộ hồ sơ chế tạo đầy đủ.",
+    "Heat exchangers (shell & tube)": "Thiết bị trao đổi nhiệt (shell & tube)",
+    "Post-weld heat treatment (PWHT) and pressure testing": "Xử lý nhiệt sau hàn (PWHT) và thử áp",
+    "ASME Section VIII Division 1 — ASME “U” stamp (PED 2014/68/EU on request)": "ASME Section VIII Division 1 — dấu ASME “U” (PED 2014/68/EU theo yêu cầu)",
+    "Equipment": "Thiết bị",
+    "Vessels, drums, columns, reactors, heat exchangers, tanks": "Bồn, bình, tháp, thiết bị phản ứng, thiết bị trao đổi nhiệt, bồn chứa",
     "ASME Section VIII Div. 1 vessels and tanks under our ASME “U” stamp.": "Bồn và bình chịu áp lực theo ASME Section VIII Div. 1 với dấu ASME “U”.",
     "Coded pressure equipment, fully documented": "Thiết bị chịu áp theo tiêu chuẩn, hồ sơ đầy đủ",
     "AMF designs and fabricates pressure vessels to ASME Section VIII Division 1, holding the ASME “U” designator. Every vessel is welded under an ISO 3834-2 system with qualified procedures, inspected and pressure-tested, and delivered with a complete manufacturing data book.": "AMF thiết kế và chế tạo bồn chịu áp lực theo ASME Section VIII Division 1, sở hữu dấu ASME “U”. Mỗi bồn được hàn theo hệ thống ISO 3834-2 với quy trình được phê duyệt, được kiểm tra và thử áp, và bàn giao kèm bộ hồ sơ chế tạo đầy đủ.",
