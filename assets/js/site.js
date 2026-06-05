@@ -281,6 +281,7 @@
     "Skids, columns, drums, heat-transfer and non-standard process equipment built to client drawings and specifications.": "Skid, tháp, bồn, thiết bị trao đổi nhiệt và thiết bị công nghệ phi tiêu chuẩn chế tạo theo bản vẽ và yêu cầu của khách hàng.",
     "Our facility": "Cơ sở của chúng tôi", "Built for heavy, large-scale fabrication": "Được xây dựng cho chế tạo hạng nặng, quy mô lớn",
     "Covered workshop": "Nhà xưởng có mái che", "Overhead cranes (100 t tandem lift)": "Cầu trục (nâng đôi 100 tấn)",
+    "Assembly workshop height": "Chiều cao xưởng lắp ráp",
     "Open yard": "Bãi ngoài trời", "Blast & paint capacity": "Công suất làm sạch & sơn",
     "Tour our facilities →": "Tham quan nhà xưởng →",
     "Why Alpha Metal Fabrication": "Vì sao chọn Alpha Metal Fabrication",

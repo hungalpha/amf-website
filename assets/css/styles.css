@@ -151,7 +151,7 @@ p{margin:0 0 1em}
 .spec-table td{color:var(--slate)}
 
 /* ---------- Facility stat band ---------- */
-.statband{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.statband{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px}
 .statband .stat{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px 22px;text-align:center}
 .section--dark .statband .stat{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12)}
 .statband strong{display:block;font-size:34px;font-weight:800;color:var(--orange);line-height:1.05}
