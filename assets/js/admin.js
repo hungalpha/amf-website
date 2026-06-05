@@ -15,7 +15,7 @@
 
   var PAGES = [
     "index.html", "about.html", "capabilities.html",
-    "steel-structures.html", "pressure-vessels.html", "process-equipment.html",
+    "metal-products.html", "pressure-vessels.html", "process-equipment.html",
     "facilities.html", "quality.html", "industries.html",
     "news.html", "contact.html"
   ];

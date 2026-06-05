@@ -18,7 +18,7 @@
       { label: "Home", href: "index.html" },
       { label: "About", href: "about.html" },
       { label: "Capabilities", href: "capabilities.html", children: [
-        { label: "Steel Structures", href: "steel-structures.html" },
+        { label: "Metal Products", href: "metal-products.html" },
         { label: "Pressure Vessels", href: "pressure-vessels.html" },
         { label: "Process Equipment", href: "process-equipment.html" }
       ] },
@@ -250,7 +250,7 @@
   var VI = {
     // Nav / header / footer
     "Home": "Trang chủ", "About": "Giới thiệu", "Capabilities": "Năng lực",
-    "Steel Structures": "Kết cấu thép", "Pressure Vessels": "Bồn chịu áp lực",
+    "Metal Products": "Sản phẩm kim loại", "Pressure Vessels": "Bồn chịu áp lực",
     "Process Equipment": "Thiết bị công nghệ", "Facilities": "Nhà xưởng",
     "Quality": "Chất lượng", "Industries": "Lĩnh vực", "News": "Tin tức",
     "Contact": "Liên hệ", "Request a Quote": "Yêu cầu báo giá", "Request a Quote →": "Yêu cầu báo giá →",
@@ -265,7 +265,7 @@
     "Overview": "Tổng quan", "Specifications": "Thông số", "Typical scope & standards": "Phạm vi & tiêu chuẩn điển hình",
     "Certified to": "Chứng nhận",
     // Breadcrumb tails
-    "/ About": "/ Giới thiệu", "/ Capabilities": "/ Năng lực", "/ Steel Structures": "/ Kết cấu thép",
+    "/ About": "/ Giới thiệu", "/ Capabilities": "/ Năng lực", "/ Metal Products": "/ Sản phẩm kim loại",
     "/ Pressure Vessels": "/ Bồn chịu áp lực", "/ Process Equipment": "/ Thiết bị công nghệ",
     "/ Facilities": "/ Nhà xưởng", "/ Quality": "/ Chất lượng", "/ Industries": "/ Lĩnh vực",
     "/ News": "/ Tin tức", "/ Contact": "/ Liên hệ", "/ Article": "/ Bài viết",
@@ -335,9 +335,17 @@
     "Surface Finishing": "Hoàn thiện bề mặt", "Blast & paint to international standards, up to 1,500 m²/day.": "Làm sạch & sơn theo tiêu chuẩn quốc tế, tới 1.500 m²/ngày.",
     "Need a specific capability?": "Cần một năng lực cụ thể?",
     "Send your scope and we'll confirm fit, schedule and budget.": "Gửi phạm vi công việc và chúng tôi sẽ xác nhận khả năng đáp ứng, tiến độ và chi phí.",
-    // Steel structures
-    "Carbon, stainless and alloy steel structures fabricated to ISO 1090 and AWS D1.1.": "Kết cấu thép carbon, không gỉ và hợp kim chế tạo theo ISO 1090 và AWS D1.1.",
-    "Heavy structural steelwork, fully finished": "Kết cấu thép hạng nặng, hoàn thiện trọn gói",
+    // Metal products
+    "Equipment baseframes & structures, ducts & stacks, dampers, shelters and offshore foundation structures in carbon, stainless and alloy steel.": "Khung bệ & kết cấu thiết bị, đường ống gió & ống khói, van điều tiết, mái che và kết cấu móng ngoài khơi bằng thép carbon, không gỉ và hợp kim.",
+    "Equipment baseframes, ducting, offshore foundations and fabricated metal products in carbon, stainless and alloy steel.": "Khung bệ thiết bị, đường ống gió, móng ngoài khơi và sản phẩm kim loại chế tạo bằng thép carbon, không gỉ và hợp kim.",
+    "Fabricated metal products, fully finished": "Sản phẩm kim loại gia công, hoàn thiện trọn gói",
+    "AMF fabricates a wide range of metal products — from equipment baseframes and ducting to offshore foundation structures — starting from raw plate and sections through to blasted, painted and marked assemblies ready for site. Our large covered workshop and 50-tonne crane capacity (100-tonne tandem) let us handle heavy, oversized fabrications in a single controlled environment.": "AMF chế tạo đa dạng sản phẩm kim loại — từ khung bệ thiết bị và đường ống gió đến kết cấu móng ngoài khơi — bắt đầu từ thép tấm và thép hình thô đến các cụm đã được làm sạch, sơn và đánh dấu sẵn sàng đưa ra công trường. Nhà xưởng có mái che rộng lớn và cầu trục 50 tấn (nâng đôi 100 tấn) cho phép chúng tôi xử lý các sản phẩm nặng, quá khổ trong một môi trường được kiểm soát.",
+    "Equipment baseframes and structures": "Khung bệ và kết cấu thiết bị",
+    "Duct & stack, damper and shelter for large equipment": "Đường ống gió & ống khói, van điều tiết và mái che cho thiết bị lớn",
+    "Offshore foundation structures": "Kết cấu móng ngoài khơi",
+    "Platforms, walkways, stairs, handrails and access steel": "Sàn thao tác, lối đi, cầu thang, tay vịn và kết cấu tiếp cận",
+    "Metal products fabrication": "Chế tạo sản phẩm kim loại",
+    "Have a fabrication package?": "Bạn có gói cần chế tạo?",
     "AMF fabricates structural steel from raw plate and sections through to blasted, painted and marked assemblies ready for site. Our large covered workshop and 50-tonne crane capacity (100-tonne tandem) let us handle heavy, oversized modules in a single controlled environment.": "AMF chế tạo kết cấu thép từ thép tấm và thép hình thô đến các cụm đã được làm sạch, sơn và đánh dấu sẵn sàng đưa ra công trường. Nhà xưởng có mái che rộng lớn và cầu trục 50 tấn (nâng đôi 100 tấn) cho phép chúng tôi xử lý các module nặng, quá khổ trong một môi trường được kiểm soát.",
     "Primary & secondary structures, platforms and walkways": "Kết cấu chính & phụ, sàn thao tác và lối đi",
     "Pipe racks, support structures and equipment supports": "Giá đỡ ống, kết cấu đỡ và gối đỡ thiết bị",
