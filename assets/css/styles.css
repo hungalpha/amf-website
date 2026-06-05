@@ -46,8 +46,12 @@ p{margin:0 0 1em}
 .topbar__inner{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:40px;flex-wrap:wrap}
 .topbar__contact{display:flex;gap:20px}
 .topbar__contact a:hover{color:#fff}
+.topbar__right{display:flex;align-items:center;gap:14px}
 .topbar__certs{display:flex;align-items:center;gap:14px}
 .topbar__certs span{opacity:.85;font-weight:500}
+.lang-toggle{background:transparent;border:1px solid rgba(255,255,255,.35);color:#cdd8e4;
+  border-radius:6px;padding:3px 11px;font:inherit;font-size:12px;font-weight:600;cursor:pointer;white-space:nowrap}
+.lang-toggle:hover{color:#fff;border-color:#fff}
 
 /* ---------- Header ---------- */
 .header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.97);
