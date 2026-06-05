@@ -167,7 +167,7 @@ p{margin:0 0 1em}
   font-weight:600;font-size:14px;border-top-right-radius:10px}
 
 /* ---------- Process steps ---------- */
-.steps{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.steps{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .steps li{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px 24px;position:relative}
 .steps__no{font-size:32px;font-weight:800;color:#e7edf3;display:block;margin-bottom:6px}
 .steps li h3{font-size:18px}
