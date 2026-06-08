@@ -524,8 +524,12 @@
     var b = document.getElementById("langToggle");
     if (b) b.textContent = lang === "vi" ? "English" : "Tiếng Việt";
   }
-  window.AMF.applyLang = function () { var l = currentLang(); translateText(l); translatePlaceholders(l); updateToggle(l); };
+  // The admin page (admin.html) has its own i18n in admin.js — site.js must not
+  // translate it, or it would revert admin strings to English.
+  function isAdminPage() { return !!document.getElementById("gate"); }
+  window.AMF.applyLang = function () { if (isAdminPage()) return; var l = currentLang(); translateText(l); translatePlaceholders(l); updateToggle(l); };
   window.AMF.setLang = function (l) {
+    if (isAdminPage()) return;
     try { localStorage.setItem("amf_lang", l); } catch (e) {}
     translateText(l); translatePlaceholders(l); updateToggle(l);
   };

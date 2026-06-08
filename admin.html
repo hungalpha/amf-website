@@ -18,6 +18,7 @@
     <p class="muted">Enter the admin passphrase to manage content.</p>
     <input type="password" id="gate-pass" placeholder="Passphrase" />
     <div style="margin-top:12px"><button class="btn" onclick="AMFAdmin.login()">Sign in</button></div>
+    <div style="margin-top:14px"><button class="btn btn--line btn--sm" id="gate-lang" type="button" onclick="AMFAdmin.toggleLang()">Tiếng Việt</button></div>
     <p class="note" style="margin-top:16px;text-align:left">This is a lightweight, client-side gate for convenience. For real protection, host the admin behind authentication or a private deployment.</p>
   </div>
 
@@ -27,6 +28,7 @@
       <img src="assets/img/amf-logo.png" alt="AMF Admin" />
       <div class="right">
         <span>Working copy saved in this browser</span>
+        <button class="btn btn--ghost btn--sm" id="admin-lang" type="button" onclick="AMFAdmin.toggleLang()">Tiếng Việt</button>
         <a class="btn btn--ghost btn--sm" href="index.html" target="_blank">View site ↗</a>
         <button class="btn btn--ghost btn--sm" onclick="AMFAdmin.logout()">Sign out</button>
       </div>
