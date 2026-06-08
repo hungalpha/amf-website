@@ -2,7 +2,7 @@
 :root{--blue:#1C5DA8;--blue-dark:#163a5f;--blue-darker:#0e2840;--orange:#E8741A;--orange-dark:#cf6210;
   --slate:#5a6b7b;--ink:#1b2733;--line:#dde3ea;--bg-soft:#eef1f4;--radius:12px}
 *{box-sizing:border-box}
-body{margin:0;font-family:'Poppins',Arial,sans-serif;color:var(--ink);background:var(--bg-soft)}
+body{margin:0;font-family:'Be Vietnam Pro',Arial,sans-serif;color:var(--ink);background:var(--bg-soft)}
 a{color:var(--blue)}
 .admin-top{background:var(--blue-darker);color:#fff;display:flex;align-items:center;justify-content:space-between;
   padding:14px 24px;position:sticky;top:0;z-index:20}
