@@ -209,11 +209,17 @@
         html_out += '<h3 style="font-size:14px;color:#5a6b7b;margin:6px 0 10px">TEXT</h3>';
         texts.forEach(function (el, i) {
           var key = el.getAttribute("data-edit");
-          var def = el.innerHTML.trim();
-          var val = ov[key] != null ? ov[key] : def;
-          pageState.text.push({ key: key, def: def, id: "t_" + i });
+          var enDef = el.innerHTML.trim();
+          var viDef = (window.AMF && AMF.translateHtml) ? AMF.translateHtml(enDef) : enDef;
+          var o = ov[key]; if (typeof o === "string") o = { en: o }; o = o || {};
+          var enVal = o.en != null ? o.en : enDef;
+          var viVal = o.vi != null ? o.vi : viDef;
+          pageState.text.push({ key: key, enDef: enDef, viDef: viDef, enId: "ten_" + i, viId: "tvi_" + i });
+          var lbl = 'style="font-size:11px;font-weight:600;color:#5a6b7b;margin:8px 0 3px"';
           html_out += '<div class="field"><label><span class="key">' + esc(key) + '</span></label>' +
-            '<textarea id="t_' + i + '">' + esc(val) + '</textarea></div>';
+            '<div ' + lbl + '>English</div><textarea id="ten_' + i + '">' + esc(enVal) + '</textarea>' +
+            '<div ' + lbl + '>Tiếng Việt</div><textarea id="tvi_' + i + '">' + esc(viVal) + '</textarea>' +
+            '</div>';
         });
       }
 
@@ -244,9 +250,11 @@
     var page = pageState.page;
     var obj = content[page] || {};
     pageState.text.forEach(function (f) {
-      var v = $(f.id).value;
-      if (v.trim() === f.def.trim()) delete obj[f.key]; // unchanged → keep default
-      else obj[f.key] = v;
+      var enV = $(f.enId).value, viV = $(f.viId).value;
+      var rec = {};
+      if (enV.trim() !== f.enDef.trim()) rec.en = enV;       // custom English
+      if (viV.trim() !== f.viDef.trim()) rec.vi = viV;       // custom Vietnamese
+      if (rec.en != null || rec.vi != null) obj[f.key] = rec; else delete obj[f.key];
     });
     pageState.img.forEach(function (f) {
       var v = $(f.id).value.trim();

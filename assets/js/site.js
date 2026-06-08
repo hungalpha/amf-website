@@ -136,23 +136,46 @@
       ' (AMF). All rights reserved. · <a href="admin.html">Admin</a></div></div></footer>';
   }
 
-  /* ---------- Content override application ---------- */
-  function applyContent(published) {
+  /* ---------- Content + per-language field resolution ----------
+     Overrides (amf_content / content.json) are structured per page:
+       { "page.html": { "field.key": { en: "...", vi: "..." } } }   // text
+       { "page.html": { "img.key": "url" } }                        // images
+     Text fields resolve to: override[lang] → (vi) dictionary translation → English default. */
+  function mergedContent() {
     var local = readLS(LS_CONTENT, {});
+    var published = window.AMF._published || {};
     var page = pageKey();
-    var merged = {};
-    if (published && published[page]) Object.assign(merged, published[page]);
-    if (local && local[page]) Object.assign(merged, local[page]);
-
+    var m = {};
+    if (published[page]) Object.assign(m, published[page]);
+    if (local[page]) Object.assign(m, local[page]);
+    return m;
+  }
+  function ovParts(v) {
+    if (v == null) return {};
+    if (typeof v === "string") return { en: v };       // legacy / single-value
+    return { en: v.en, vi: v.vi };
+  }
+  function resolveFields(lang) {
+    var m = mergedContent();
     document.querySelectorAll("[data-edit]").forEach(function (el) {
-      var k = el.getAttribute("data-edit");
-      if (merged[k] != null) el.innerHTML = merged[k];
+      var key = el.getAttribute("data-edit");
+      if (el.__enDefault === undefined) el.__enDefault = el.innerHTML; // original English HTML
+      var ov = ovParts(m[key]);
+      var html;
+      if (lang === "vi") {
+        if (ov.vi != null && ov.vi !== "") html = ov.vi;
+        else if (ov.en != null && ov.en !== "") html = translateHtml(ov.en);
+        else html = translateHtml(el.__enDefault);
+      } else {
+        html = (ov.en != null && ov.en !== "") ? ov.en : el.__enDefault;
+      }
+      if (el.innerHTML !== html) el.innerHTML = html;
     });
     document.querySelectorAll("[data-edit-img]").forEach(function (el) {
-      var k = el.getAttribute("data-edit-img");
-      if (merged[k] != null && merged[k] !== "") {
-        if (el.tagName === "IMG") el.src = merged[k];
-        else el.style.backgroundImage = "url('" + merged[k] + "')";
+      var v = m[el.getAttribute("data-edit-img")];
+      if (v && typeof v === "object") v = v.en || v.vi;
+      if (v != null && v !== "") {
+        if (el.tagName === "IMG") el.src = v; else el.style.backgroundImage = "url('" + v + "')";
       }
     });
   }
@@ -491,6 +514,29 @@
   };
 
   function normSpace(s) { return String(s).replace(/\s+/g, " ").trim(); }
+  // Translate the text fragments inside an HTML string using the VI dictionary.
+  function translateHtml(html) {
+    var tmp = document.createElement("div");
+    tmp.innerHTML = html;
+    var w = document.createTreeWalker(tmp, NodeFilter.SHOW_TEXT, null), n;
+    while ((n = w.nextNode())) {
+      var key = normSpace(n.nodeValue);
+      if (!key || VI[key] == null) continue;
+      var lead = (n.nodeValue.match(/^\s*/) || [""])[0];
+      var trail = (n.nodeValue.match(/\s*$/) || [""])[0];
+      n.nodeValue = lead + VI[key] + trail;
+    }
+    return tmp.innerHTML;
+  }
+  window.AMF.translateHtml = translateHtml;
+  function inDataEdit(node) {
+    var e = node.parentNode;
+    while (e && e !== document.body) {
+      if (e.nodeType === 1 && e.hasAttribute && e.hasAttribute("data-edit")) return true;
+      e = e.parentNode;
+    }
+    return false;
+  }
   function translateText(lang) {
     var skip = { SCRIPT: 1, STYLE: 1, NOSCRIPT: 1, TEXTAREA: 1 };
     var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null);
@@ -499,6 +545,7 @@
     nodes.forEach(function (node) {
       var p = node.parentNode;
       if (!p || skip[p.nodeName] || p.id === "langToggle") return;
+      if (inDataEdit(node)) return; // data-edit fields are handled by resolveFields
       if (node.__en === undefined) node.__en = node.nodeValue;
       var key = normSpace(node.__en);
       if (!key) return;
@@ -527,11 +574,11 @@
   // The admin page (admin.html) has its own i18n in admin.js — site.js must not
   // translate it, or it would revert admin strings to English.
   function isAdminPage() { return !!document.getElementById("gate"); }
-  window.AMF.applyLang = function () { if (isAdminPage()) return; var l = currentLang(); translateText(l); translatePlaceholders(l); updateToggle(l); };
+  window.AMF.applyLang = function () { if (isAdminPage()) return; var l = currentLang(); resolveFields(l); translateText(l); translatePlaceholders(l); updateToggle(l); };
   window.AMF.setLang = function (l) {
     if (isAdminPage()) return;
     try { localStorage.setItem("amf_lang", l); } catch (e) {}
-    translateText(l); translatePlaceholders(l); updateToggle(l);
+    resolveFields(l); translateText(l); translatePlaceholders(l); updateToggle(l);
   };
 
   /* ---------- Boot ---------- */
@@ -550,11 +597,9 @@
       .then(function (r) { return r.ok ? r.json() : {}; })
       .catch(function () { return {}; })
       .then(function (published) {
-        applyContent(published);
+        window.AMF._published = published; // expose for resolveFields + admin discovery
         applyBindings(published);
-        window.AMF.applyLang(); // re-translate any override-replaced nodes
-        // expose for admin defaults discovery
-        window.AMF._published = published;
+        window.AMF.applyLang(); // resolve fields (with published) + translate chrome
       });
 
     // Page-specific render hooks
