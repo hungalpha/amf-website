@@ -297,9 +297,12 @@
       write(K.news, items); // promote to working copy
       var el = $("news-list-admin");
       if (!items.length) { el.innerHTML = '<p class="muted">No articles yet.</p>'; adminTranslate(); return; }
+      var lang = adminLang();
       el.innerHTML = items.map(function (n) {
-        return '<div class="news-item"><div><span class="tag">' + esc(n.date || "") + '</span> <strong>' + esc(n.title) + "</strong>" +
-          '<br><small>' + esc(n.excerpt || "") + "</small></div>" +
+        var t = (lang === "vi" && n.title_vi) ? n.title_vi : n.title;
+        var ex = (lang === "vi" && n.excerpt_vi) ? n.excerpt_vi : n.excerpt;
+        return '<div class="news-item"><div><span class="tag">' + esc(n.date || "") + '</span> <strong>' + esc(t) + "</strong>" +
+          '<br><small>' + esc(ex || "") + "</small></div>" +
           '<div style="display:flex;gap:8px"><button class="btn btn--line btn--sm" onclick="AMFAdmin.editArticle(\'' + esc(n.id) + '\')">Edit</button>' +
           '<button class="btn btn--danger btn--sm" onclick="AMFAdmin.deleteArticle(\'' + esc(n.id) + '\')">Delete</button></div></div>';
       }).join("");
@@ -307,7 +310,7 @@
     });
   }
   Admin.newArticle = function () {
-    openEditor({ id: "post-" + Date.now(), title: "", date: new Date().toISOString().slice(0, 10), excerpt: "", image: "", body: "<p></p>" }, "New article");
+    openEditor({ id: "post-" + Date.now(), title: "", title_vi: "", date: new Date().toISOString().slice(0, 10), excerpt: "", excerpt_vi: "", image: "", body: "<p></p>", body_vi: "" }, "New article");
   };
   Admin.editArticle = function (id) {
     getNews().then(function (items) {
@@ -318,8 +321,10 @@
   function openEditor(n, title) {
     $("news-editor").style.display = "block";
     $("news-editor-title").textContent = tr(title);
-    $("n-id").value = n.id; $("n-title").value = n.title; $("n-date").value = n.date;
-    $("n-excerpt").value = n.excerpt || ""; $("n-image").value = n.image || ""; $("n-body").value = n.body || "";
+    $("n-id").value = n.id; $("n-title").value = n.title || ""; $("n-date").value = n.date || "";
+    $("n-title-vi").value = n.title_vi || "";
+    $("n-excerpt").value = n.excerpt || ""; $("n-excerpt-vi").value = n.excerpt_vi || "";
+    $("n-image").value = n.image || ""; $("n-body").value = n.body || ""; $("n-body-vi").value = n.body_vi || "";
     $("n-image-prev").src = n.image || "";
     $("news-editor").scrollIntoView({ behavior: "smooth" });
   }
@@ -327,8 +332,10 @@
   Admin.saveArticle = function () {
     var items = read(K.news, []);
     var rec = {
-      id: $("n-id").value, title: $("n-title").value.trim(), date: $("n-date").value,
-      excerpt: $("n-excerpt").value.trim(), image: $("n-image").value.trim(), body: $("n-body").value
+      id: $("n-id").value, date: $("n-date").value, image: $("n-image").value.trim(),
+      title: $("n-title").value.trim(), title_vi: $("n-title-vi").value.trim(),
+      excerpt: $("n-excerpt").value.trim(), excerpt_vi: $("n-excerpt-vi").value.trim(),
+      body: $("n-body").value, body_vi: $("n-body-vi").value
     };
     if (!rec.title) { alert(tr("Title is required.")); return; }
     var idx = items.findIndex(function (x) { return String(x.id) === String(rec.id); });

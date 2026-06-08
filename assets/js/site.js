@@ -239,18 +239,21 @@
       .catch(function () { return []; });
   };
 
+  function L(s) { var lang = currentLang(); return (lang === "vi" && VI[s] != null) ? VI[s] : s; }
+  function pick(n, base) { // base = 'title'|'excerpt'|'body' → VI variant if VI lang & present
+    return (currentLang() === "vi" && n[base + "_vi"]) ? n[base + "_vi"] : (n[base] || "");
+  }
   window.AMF.renderNewsList = function (el) {
     window.AMF.loadNews().then(function (items) {
-      if (!items.length) { el.innerHTML = '<p class="muted">No news yet. Check back soon.</p>'; window.AMF.applyLang(); return; }
+      if (!items.length) { el.innerHTML = '<p class="muted">' + L("No news yet. Check back soon.") + '</p>'; return; }
       el.innerHTML = items.map(function (n) {
         var img = n.image ? '<div class="ncard__img" style="background-image:url(\'' + n.image + '\')"></div>'
                           : '<div class="ncard__img ncard__img--ph"></div>';
         return '<a class="ncard" href="news-detail.html?id=' + encodeURIComponent(n.id) + '">' + img +
           '<div class="ncard__body"><span class="ncard__date">' + escapeHtml(n.date || "") + '</span>' +
-          '<h3>' + escapeHtml(n.title) + '</h3><p>' + escapeHtml(n.excerpt || "") + '</p>' +
-          '<span class="card__link">Read more →</span></div></a>';
+          '<h3>' + escapeHtml(pick(n, "title")) + '</h3><p>' + escapeHtml(pick(n, "excerpt")) + '</p>' +
+          '<span class="card__link">' + L("Read more →") + '</span></div></a>';
       }).join("");
-      window.AMF.applyLang();
     });
   };
 
@@ -258,14 +261,14 @@
     var id = new URLSearchParams(location.search).get("id");
     window.AMF.loadNews().then(function (items) {
       var n = items.filter(function (x) { return String(x.id) === String(id); })[0];
-      if (!n) { el.innerHTML = '<p class="muted">Article not found. <a href="news.html">Back to news</a></p>'; return; }
-      document.title = n.title + " — " + SITE.name;
+      if (!n) { el.innerHTML = '<p class="muted">' + L("Article not found.") + ' <a href="news.html">' + L("Back to news") + '</a></p>'; return; }
+      var title = pick(n, "title");
+      document.title = title + " — " + SITE.name;
       var hero = n.image ? '<div class="article__hero" style="background-image:url(\'' + n.image + '\')"></div>' : "";
       el.innerHTML = hero + '<span class="ncard__date">' + escapeHtml(n.date || "") + '</span>' +
-        '<h1>' + escapeHtml(n.title) + '</h1>' +
-        '<div class="article__body">' + (n.body || "<p></p>") + '</div>' +
-        '<p><a class="btn btn--ghost-dark" href="news.html">← All news</a></p>';
-      window.AMF.applyLang();
+        '<h1>' + escapeHtml(title) + '</h1>' +
+        '<div class="article__body">' + (pick(n, "body") || "<p></p>") + '</div>' +
+        '<p><a class="btn btn--ghost-dark" href="news.html">' + L("← All news") + '</a></p>';
     });
   };
 
@@ -285,6 +288,7 @@
     "Explore →": "Tìm hiểu →", "View details →": "Xem chi tiết →", "Contact Us →": "Liên hệ →",
     "← All news": "← Tất cả tin tức", "Read more →": "Xem thêm →",
     "No news yet. Check back soon.": "Chưa có tin tức. Vui lòng quay lại sau.",
+    "Article not found.": "Không tìm thấy bài viết.", "Back to news": "Quay lại tin tức",
     "Overview": "Tổng quan", "Specifications": "Thông số", "Typical scope & standards": "Phạm vi & tiêu chuẩn điển hình",
     "Certified to": "Chứng nhận",
     // Breadcrumb tails
@@ -579,6 +583,9 @@
     if (isAdminPage()) return;
     try { localStorage.setItem("amf_lang", l); } catch (e) {}
     resolveFields(l); translateText(l); translatePlaceholders(l); updateToggle(l);
+    // re-render news content in the chosen language
+    var nl = document.getElementById("news-list"); if (nl) window.AMF.renderNewsList(nl);
+    var art = document.getElementById("article"); if (art) window.AMF.renderArticle(art);
   };
 
   /* ---------- Boot ---------- */

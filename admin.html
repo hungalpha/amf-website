@@ -74,16 +74,21 @@
           <h2 id="news-editor-title">Edit article</h2>
           <input type="hidden" id="n-id" />
           <div class="row2">
-            <div><label>Title</label><input id="n-title" /></div>
+            <div><label>Title</label>
+              <div class="lbl-lang">English</div><input id="n-title" />
+              <div class="lbl-lang">Tiếng Việt</div><input id="n-title-vi" />
+            </div>
             <div><label>Date</label><input id="n-date" type="date" /></div>
           </div>
           <label>Excerpt (short summary)</label>
-          <textarea id="n-excerpt" style="min-height:60px"></textarea>
+          <div class="lbl-lang">English</div><textarea id="n-excerpt" style="min-height:55px"></textarea>
+          <div class="lbl-lang">Tiếng Việt</div><textarea id="n-excerpt-vi" style="min-height:55px"></textarea>
           <label>Cover image</label>
           <div class="imgrow"><img id="n-image-prev" alt="" /><input type="file" accept="image/*" onchange="AMFAdmin.pickImage(event,'n-image')" /></div>
           <input id="n-image" placeholder="…or paste an image URL" style="margin-top:8px" />
           <label>Body (HTML allowed)</label>
-          <textarea id="n-body" style="min-height:180px"></textarea>
+          <div class="lbl-lang">English</div><textarea id="n-body" style="min-height:140px"></textarea>
+          <div class="lbl-lang">Tiếng Việt</div><textarea id="n-body-vi" style="min-height:140px"></textarea>
           <div class="toolbar">
             <button class="btn btn--accent" onclick="AMFAdmin.saveArticle()">💾 Save article</button>
             <button class="btn btn--line btn--sm" onclick="AMFAdmin.closeArticle()">Cancel</button>

@@ -28,6 +28,7 @@ label{display:block;font-weight:600;font-size:13px;color:var(--blue-dark);margin
 input,select,textarea{width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:9px;font:inherit;font-size:14px;background:#fff}
 textarea{min-height:90px;resize:vertical;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px}
 .field{margin-bottom:8px}
+.lbl-lang{font-size:11px;font-weight:600;color:var(--slate);margin:8px 0 3px}
 .field .key{font-family:ui-monospace,monospace;font-size:12px;color:var(--orange-dark);background:#fff3e8;padding:1px 7px;border-radius:5px}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .imgrow{display:flex;gap:12px;align-items:center;margin-top:6px}
