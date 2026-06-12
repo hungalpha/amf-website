@@ -47,6 +47,8 @@ p{margin:0 0 1em}
 .topbar__contact{display:flex;gap:20px}
 .topbar__contact a:hover{color:#fff}
 .topbar__right{display:flex;align-items:center;gap:14px}
+.topbar-link{color:#cdd8e4;font-weight:600;white-space:nowrap}
+.topbar-link:hover{color:#fff}
 .topbar__certs{display:flex;align-items:center;gap:14px}
 .topbar__certs span{opacity:.85;font-weight:500}
 .lang-toggle{background:transparent;border:1px solid rgba(255,255,255,.35);color:#cdd8e4;

@@ -93,6 +93,7 @@
         '<a href="mailto:' + SITE.email + '">✉️ <span data-bind="email">' + SITE.email + '</span></a>' +
       '</div>' +
       '<div class="topbar__right">' +
+        '<a class="topbar-link" href="https://qlns.alphametalfabrication.com/en/login" target="_blank" rel="noopener">🔐 Staff Login</a>' +
         '<div class="topbar__certs">' +
           '<span>ISO 9001</span><span>ISO 14001</span><span>ISO 3834</span><span>ISO 1090</span><span>ASME “U”</span>' +
         '</div>' +
@@ -280,6 +281,7 @@
     "Process Equipment": "Thiết bị công nghệ", "Facilities": "Nhà xưởng",
     "Quality": "Chất lượng", "Industries": "Lĩnh vực", "News": "Tin tức",
     "Contact": "Liên hệ", "Request a Quote": "Yêu cầu báo giá", "Request a Quote →": "Yêu cầu báo giá →",
+    "🔐 Staff Login": "🔐 Đăng nhập nhân viên",
     "Company": "Công ty", "About AMF": "Giới thiệu AMF", "Quality & Certifications": "Chất lượng & Chứng nhận",
     "Admin": "Quản trị", "Industrial Zone, Vietnam": "Khu công nghiệp, Việt Nam",
     "Alpha Metal Fabrication (AMF) — fabrication of steel structures, pressure vessels and process equipment to international standards.": "Alpha Metal Fabrication (AMF) — chế tạo kết cấu thép, bồn chịu áp lực và thiết bị công nghệ theo tiêu chuẩn quốc tế.",
